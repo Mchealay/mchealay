@@ -70,8 +70,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
 export function Hero() {
@@ -88,8 +88,6 @@ export function Hero() {
         <div className="absolute top-1/4 -left-32 w-80 h-80 sm:w-[450px] sm:h-[450px] bg-cyan-500/8 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 sm:w-[450px] sm:h-[450px] bg-indigo-500/8 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[700px] sm:h-[700px] bg-cyan-500/4 rounded-full blur-[120px]" />
-        <div className="absolute top-10 right-1/4 w-40 h-40 bg-indigo-400/6 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-emerald-400/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-24">
@@ -99,13 +97,10 @@ export function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-5 sm:gap-6 text-center"
         >
-          {/* — Availability & About Badge — */}
+          {/* — Availability Badge (Static clean status indicator) — */}
           <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-2">
-            <span className="badge-glow inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/25 bg-emerald-400/8 text-emerald-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-              </span>
+            <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/25 bg-emerald-400/8 text-emerald-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
+              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               Open to Full-Stack &amp; Backend Roles
             </span>
           </motion.div>
@@ -161,10 +156,10 @@ export function Hero() {
             {highlights.map((chip) => (
               <span
                 key={chip.text}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] sm:text-xs text-slate-300 font-medium whitespace-nowrap ${chip.color}`}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-[11px] sm:text-xs text-slate-300 font-medium ${chip.color}`}
               >
                 {chip.icon}
-                {chip.text}
+                <span>{chip.text}</span>
               </span>
             ))}
           </motion.div>
@@ -178,10 +173,10 @@ export function Hero() {
             <a
               id="view-projects-btn"
               href="#projects"
-              className="btn-gradient relative group px-6 py-3.5 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto overflow-hidden whitespace-nowrap"
+              className="btn-gradient relative group px-6 py-3.5 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto"
             >
               <Sparkles className="w-4 h-4 shrink-0" />
-              View My Projects
+              <span>View My Projects</span>
               <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -189,7 +184,7 @@ export function Hero() {
             <a
               id="contact-btn"
               href="#contact"
-              className="relative px-6 py-3.5 rounded-2xl font-semibold text-sm glass border border-white/12 text-slate-200 hover:bg-white/8 hover:border-cyan-400/35 hover:text-white transition-all duration-300 text-center w-full sm:w-auto whitespace-nowrap"
+              className="relative px-6 py-3.5 rounded-2xl font-semibold text-sm glass border border-white/12 text-slate-200 hover:bg-white/8 hover:border-cyan-400/35 hover:text-white transition-all duration-300 text-center w-full sm:w-auto"
             >
               Get in Touch
             </a>
@@ -200,10 +195,10 @@ export function Hero() {
               href="https://mchealay.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-2xl font-semibold text-sm border border-cyan-400/25 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap"
+              className="px-6 py-3.5 rounded-2xl font-semibold text-sm border border-cyan-400/25 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <ExternalLink className="w-4 h-4 shrink-0" />
-              mchealay.vercel.app
+              <span>mchealay.vercel.app</span>
             </a>
           </motion.div>
 
@@ -217,29 +212,14 @@ export function Hero() {
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 aria-label={link.label}
-                whileHover={{ scale: 1.12, y: -3 }}
-                whileTap={{ scale: 0.92 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 className={`w-11 h-11 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200 ${link.color}`}
                 title={link.label}
               >
                 {link.icon}
               </motion.a>
             ))}
-          </motion.div>
-
-          {/* — Scroll Indicator — */}
-          <motion.div
-            variants={itemVariants}
-            className="hidden sm:flex flex-col items-center gap-2 mt-2 text-slate-600"
-          >
-            <span className="text-[11px] tracking-widest uppercase font-medium">Scroll</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-5 h-9 rounded-full border border-slate-700/60 flex items-start justify-center pt-1.5"
-            >
-              <div className="w-1.5 h-2.5 rounded-full bg-gradient-to-b from-cyan-400/80 to-transparent" />
-            </motion.div>
           </motion.div>
         </motion.div>
       </div>
