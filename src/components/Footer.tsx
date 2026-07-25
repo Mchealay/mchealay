@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 import { ArrowUp, Code2, Heart } from 'lucide-react';
 
 const footerLinks = [
-  { href: '#stats', label: 'Impact' },
+  { href: '#stats', label: 'Highlights' },
   { href: '#projects', label: 'Projects' },
-  { href: '#playground', label: 'Playground' },
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
+  { href: '#education', label: 'Education' },
+  { href: '#playground', label: 'CLI Playground' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -27,7 +28,7 @@ export function Footer() {
               <Code2 className="w-3.5 h-3.5 text-white" />
             </div>
             <span className="font-bold text-white">
-              alex<span className="gradient-text">.dev</span>
+              mchealay<span className="gradient-text">.dev</span>
             </span>
           </div>
 
@@ -37,7 +38,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-slate-500 hover:text-slate-300 transition-colors animated-underline"
+                className="text-xs sm:text-sm text-slate-400 hover:text-slate-200 transition-colors animated-underline"
               >
                 {link.label}
               </a>
@@ -52,18 +53,19 @@ export function Footer() {
             whileTap={{ scale: 0.95 }}
             className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 transition-colors"
             aria-label="Back to top"
+            title="Back to top"
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <p>
-            © {new Date().getFullYear()} Alex Chen. All rights reserved.
+            © {new Date().getFullYear()} Mchealay Hafte. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Built with <Heart className="w-3 h-3 text-red-500/70 mx-0.5" /> using Next.js, Tailwind & Framer Motion
+            Built with <Heart className="w-3 h-3 text-red-500/80 mx-0.5" /> using Next.js, Tailwind CSS & Framer Motion
           </p>
         </div>
       </div>

@@ -13,86 +13,99 @@ const COMMANDS: Record<string, () => OutputLine> = {
   help: () => ({
     type: 'output',
     content: [
-      'Available commands:',
-      '  about      → Learn about me',
-      '  skills     → View my tech stack',
-      '  projects   → Browse featured projects',
-      '  contact    → Get my contact info',
+      'Available CLI commands:',
+      '  about      → Overview of Mchealay Hafte',
+      '  skills     → View technical stack & languages',
+      '  projects   → Browse featured full-stack & AI projects',
+      '  education  → Degree, GPA & exit exam scores',
+      '  contact    → Email, phone, website & socials',
       '  status     → Check current availability',
-      '  api        → Simulate a REST API call',
-      '  clear      → Clear the terminal',
+      '  api        → Simulate JSON REST API response',
+      '  clear      → Clear the terminal output',
     ],
   }),
   about: () => ({
     type: 'success',
     content: [
-      '╭─────────────────────────────────────╮',
-      '│  Alex Chen · Full-Stack Engineer    │',
-      '│  5+ years · Remote-first            │',
-      '│  Specialized in scalable systems,   │',
-      '│  cloud infrastructure & DX tools.   │',
-      '╰─────────────────────────────────────╯',
+      '╭───────────────────────────────────────────────────╮',
+      '│  MCHEALAY HAFTE · Full-Stack Software Developer   │',
+      '│  Mekelle, Ethiopia / Remote                        │',
+      '│  Delivering AI-powered solutions in healthcare,  │',
+      '│  education, career tech, and governance.           │',
+      '╰───────────────────────────────────────────────────╯',
     ],
   }),
   skills: () => ({
     type: 'info',
     content: [
-      '→ Languages    TypeScript · Go · Python · SQL',
-      '→ Frontend     React · Next.js · Tailwind · Framer',
-      '→ Backend      Node.js · GraphQL · REST · gRPC',
-      '→ Databases    PostgreSQL · Redis · ClickHouse · MongoDB',
-      '→ DevOps       Docker · Kubernetes · AWS · CI/CD',
+      '→ Languages & Frameworks:  Python · Node.js · Express · Next.js · NestJS · Django · PHP · Flutter · React',
+      '→ Databases:              PostgreSQL · MongoDB · NeonDB · Prisma ORM',
+      '→ AI & Platforms:          TensorFlow · OpenCV · MediaPipe · Gemini API · Clerk Auth · PayPal API',
+      '→ Spoken Languages:        English (Professional) · Amharic (Native) · Tigrigna (Native)',
     ],
   }),
   projects: () => ({
     type: 'output',
     content: [
-      '[1] CloudEdge Platform   → Multi-tenant SaaS, 50k+ DAU',
-      '[2] Analytics Engine     → 2M events/min stream pipeline',
-      '[3] DevForge CLI         → 2,400+ GitHub stars OSS tool',
+      '[1] TASL              → AI Tigrigna Sign Language Recognition (20k images, 30 letters)',
+      '[2] SkillSync         → AI Career Coach & Resume Reviewer (Next.js, Gemini API, NeonDB)',
+      '[3] HomeHub           → Full-Stack Real Estate Marketplace (Node.js, Express, MongoDB)',
+      '[4] EHealthSuite      → Multi-tenant Health Insurance Platform (NestJS, PostgreSQL)',
+      '[5] Job Boards        → Full-Stack Employer & Applicant Portal (Node.js, React)',
       '',
-      'See full case studies at #projects ↑',
+      'View detailed case studies at #projects ↑',
+    ],
+  }),
+  education: () => ({
+    type: 'success',
+    content: [
+      '🎓 Degree: B.Sc. in Software Engineering — Mekelle University (2019 – 2026)',
+      '📊 Cumulative GPA: 3.67 / 4.0',
+      '🏆 National Exit Exam Score: 86.25%',
+      '📜 Certifications: Cisco IT Essentials · Udacity AI · Computer Maintenance',
     ],
   }),
   contact: () => ({
     type: 'success',
     content: [
-      '📧  alex@example.com',
-      '🐙  github.com/alexchen',
-      '💼  linkedin.com/in/alexchen',
-      '🐦  @alexchendev',
+      '📧 Email:     haftemchealay@gmail.com',
+      '📞 Phone:     +251914297180',
+      '🌐 Website:   mchealay.vercel.app',
+      '🐙 GitHub:    github.com/mchealay',
+      '💼 LinkedIn:  linkedin.com/in/mchealay',
     ],
   }),
   status: () => ({
     type: 'success',
     content: [
-      '🟢 STATUS: Available for new opportunities',
-      '',
-      '   Preferred: Full-time or contract',
-      '   Start date: Immediate',
-      '   Location: Remote / Hybrid',
+      '🟢 STATUS: Available for Full-Stack, Backend & AI Developer opportunities',
+      '   Location: Mekelle, Ethiopia / Open to Remote worldwide',
+      '   Degree: B.Sc. Software Engineering (GPA: 3.67/4.0)',
     ],
   }),
   api: () => ({
     type: 'output',
     content: [
-      'GET /api/v1/engineer/alex → 200 OK (12ms)',
+      'GET /api/v1/developer/mchealay → 200 OK (8ms)',
       '',
       '{',
-      '  "name": "Alex Chen",',
-      '  "role": "Full-Stack Engineer",',
+      '  "name": "Mchealay Hafte",',
+      '  "role": "Full-Stack Software Developer",',
+      '  "email": "haftemchealay@gmail.com",',
+      '  "gpa": "3.67/4.0",',
+      '  "exitExamScore": "86.25%",',
+      '  "university": "Mekelle University",',
+      '  "internship": "Vite PLC",',
       '  "available": true,',
-      '  "yoe": 5,',
-      '  "stack": ["TypeScript","React","Node.js","Go"],',
-      '  "uptime": "99.9%"',
+      '  "projectsCount": 5',
       '}',
     ],
   }),
 };
 
 const WELCOME_LINES: OutputLine[] = [
-  { type: 'info', content: ['Welcome to alex.dev terminal v1.0.0'] },
-  { type: 'output', content: ['Type `help` to see available commands.'] },
+  { type: 'info', content: ['Welcome to mchealay.dev terminal CLI v1.0.0'] },
+  { type: 'output', content: ['Type `help` to list available commands.'] },
 ];
 
 export function Playground() {
@@ -114,7 +127,6 @@ export function Playground() {
     const trimmed = cmd.trim().toLowerCase();
     if (!trimmed) return;
 
-    // Add input line
     setHistory((h) => [...h, { type: 'input', content: `> ${cmd}` }]);
     setCommandHistory((ch) => [cmd, ...ch.slice(0, 19)]);
     setHistoryIndex(-1);
@@ -127,7 +139,7 @@ export function Playground() {
     }
 
     setIsTyping(true);
-    await new Promise((r) => setTimeout(r, 280 + Math.random() * 200));
+    await new Promise((r) => setTimeout(r, 200 + Math.random() * 150));
     setIsTyping(false);
 
     const handler = COMMANDS[trimmed];
@@ -184,16 +196,16 @@ export function Playground() {
           className="text-center mb-12"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Interactive
+            Interactive CLI
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Terminal <span className="gradient-text">Playground</span>
           </h2>
-          <p className="text-slate-400">
-            Explore my profile via an interactive CLI. Try commands like{' '}
+          <p className="text-slate-400 text-sm sm:text-base">
+            Explore Mchealay&apos;s CV interactively. Try running{' '}
             <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">help</code>,{' '}
-            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">api</code>, or{' '}
-            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">about</code>.
+            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">education</code>, or{' '}
+            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">api</code>.
           </p>
         </motion.div>
 
@@ -210,15 +222,16 @@ export function Playground() {
               <div className="w-3 h-3 rounded-full bg-amber-500/80 hover:bg-amber-500 transition-colors cursor-pointer" />
               <div className="w-3 h-3 rounded-full bg-emerald-500/80 hover:bg-emerald-500 transition-colors cursor-pointer" />
             </div>
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <Terminal className="w-3.5 h-3.5" />
-              <span>alex.dev — bash</span>
+            <div className="flex items-center gap-2 text-xs text-slate-400">
+              <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+              <span>mchealay.dev — bash</span>
             </div>
             <button
               id="terminal-clear-btn"
               onClick={() => setHistory(WELCOME_LINES)}
-              className="text-slate-600 hover:text-slate-400 transition-colors"
+              className="text-slate-500 hover:text-slate-300 transition-colors"
               aria-label="Clear terminal"
+              title="Clear Terminal"
             >
               <Trash2 className="w-3.5 h-3.5" />
             </button>
@@ -226,7 +239,7 @@ export function Playground() {
 
           {/* Terminal body */}
           <div
-            className="bg-[#0d1117] h-80 overflow-y-auto p-4 terminal-font text-sm cursor-text"
+            className="bg-[#0d1117] h-80 overflow-y-auto p-4 terminal-font text-xs sm:text-sm cursor-text"
             onClick={() => inputRef.current?.focus()}
           >
             {history.map((line, i) => {
@@ -242,10 +255,9 @@ export function Playground() {
               );
             })}
 
-            {/* Typing indicator */}
             {isTyping && (
               <div className="text-cyan-400 flex items-center gap-1">
-                <span>processing</span>
+                <span>executing</span>
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
@@ -274,9 +286,9 @@ export function Playground() {
             <div ref={bottomRef} />
           </div>
 
-          {/* Quick command chips */}
+          {/* Quick command buttons */}
           <div className="px-4 py-3 bg-[#0d1117] border-t border-white/5 flex flex-wrap gap-2">
-            {['help', 'about', 'skills', 'projects', 'api', 'status'].map((cmd) => (
+            {['help', 'about', 'skills', 'projects', 'education', 'contact', 'api'].map((cmd) => (
               <button
                 key={cmd}
                 id={`terminal-cmd-${cmd}`}

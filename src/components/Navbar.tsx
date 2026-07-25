@@ -1,16 +1,17 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import { Menu, X, Code2 } from 'lucide-react';
 
 const navLinks = [
-  { href: '#stats', label: 'Impact' },
+  { href: '#stats', label: 'Highlights' },
   { href: '#projects', label: 'Projects' },
-  { href: '#playground', label: 'Playground' },
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
+  { href: '#education', label: 'Education' },
+  { href: '#playground', label: 'CLI Playground' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -72,7 +73,7 @@ export function Navbar() {
                 <Code2 className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-white text-lg tracking-tight">
-                alex<span className="gradient-text">.dev</span>
+                mchealay<span className="gradient-text">.dev</span>
               </span>
             </Link>
 
@@ -106,7 +107,7 @@ export function Navbar() {
                 href="#contact"
                 className="ml-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
               >
-                Hire Me
+                Hire Mchealay
               </a>
             </nav>
 
@@ -146,7 +147,7 @@ export function Navbar() {
             onClick={() => setIsOpen(false)}
             className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white text-center"
           >
-            Hire Me
+            Hire Mchealay
           </a>
         </nav>
       </motion.div>

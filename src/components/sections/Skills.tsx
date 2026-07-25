@@ -3,53 +3,56 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-type TabKey = 'languages' | 'frontend' | 'backend' | 'devops';
+type TabKey = 'languages' | 'backend' | 'frontend' | 'ai_tools';
 
 interface Skill {
   name: string;
-  level: number; // 0-100
+  level: number;
   icon: string;
+  tag?: string;
 }
 
 const tabs: { key: TabKey; label: string }[] = [
-  { key: 'languages', label: 'Languages' },
-  { key: 'frontend', label: 'Frontend' },
-  { key: 'backend', label: 'Backend & DBs' },
-  { key: 'devops', label: 'DevOps & Cloud' },
+  { key: 'languages', label: 'Languages & Frameworks' },
+  { key: 'backend', label: 'Backend & Databases' },
+  { key: 'frontend', label: 'Frontend & Mobile' },
+  { key: 'ai_tools', label: 'AI, Vision & APIs' },
 ];
 
 const skills: Record<TabKey, Skill[]> = {
   languages: [
-    { name: 'TypeScript', level: 96, icon: '𝗧𝗦' },
-    { name: 'JavaScript', level: 95, icon: '𝗝𝗦' },
-    { name: 'Go', level: 80, icon: '𝗚𝗼' },
-    { name: 'Python', level: 82, icon: '🐍' },
-    { name: 'SQL', level: 90, icon: '🗄️' },
-    { name: 'Bash', level: 75, icon: '⚡' },
-  ],
-  frontend: [
-    { name: 'React', level: 97, icon: '⚛️' },
-    { name: 'Next.js', level: 94, icon: '▲' },
-    { name: 'Tailwind CSS', level: 92, icon: '🎨' },
-    { name: 'Framer Motion', level: 85, icon: '🎞️' },
-    { name: 'Redux / Zustand', level: 88, icon: '🔄' },
-    { name: 'GraphQL Client', level: 84, icon: '◉' },
+    { name: 'Python', level: 95, icon: '🐍' },
+    { name: 'Node.js / JS', level: 94, icon: '🟢' },
+    { name: 'NestJS', level: 92, icon: '🪺' },
+    { name: 'Express', level: 90, icon: '⚡' },
+    { name: 'Django', level: 88, icon: '🎸' },
+    { name: 'PHP', level: 82, icon: '🐘' },
+    { name: 'Java', level: 80, icon: '☕' },
   ],
   backend: [
-    { name: 'Node.js', level: 94, icon: '🟢' },
-    { name: 'GraphQL API', level: 88, icon: '◈' },
-    { name: 'PostgreSQL', level: 91, icon: '🐘' },
-    { name: 'Redis', level: 87, icon: '🔴' },
-    { name: 'MongoDB', level: 80, icon: '🍃' },
-    { name: 'ClickHouse', level: 72, icon: '📊' },
+    { name: 'PostgreSQL', level: 94, icon: '🐘' },
+    { name: 'MongoDB', level: 90, icon: '🍃' },
+    { name: 'NeonDB', level: 88, icon: '⚡' },
+    { name: 'Prisma ORM', level: 92, icon: '💎' },
+    { name: 'RESTful APIs', level: 96, icon: '🔗' },
+    { name: 'Multi-Tenant Arch', level: 90, icon: '🏗️' },
   ],
-  devops: [
-    { name: 'Docker', level: 92, icon: '🐳' },
-    { name: 'Kubernetes', level: 80, icon: '⎈' },
-    { name: 'AWS', level: 85, icon: '☁️' },
-    { name: 'CI/CD Pipelines', level: 90, icon: '🚀' },
-    { name: 'Terraform', level: 72, icon: '🏗️' },
-    { name: 'GitHub Actions', level: 88, icon: '⚙️' },
+  frontend: [
+    { name: 'React 19', level: 94, icon: '⚛️' },
+    { name: 'Next.js', level: 92, icon: '▲' },
+    { name: 'Flutter', level: 85, icon: '💙' },
+    { name: 'Tailwind CSS', level: 95, icon: '🎨' },
+    { name: 'HTML5 / CSS3', level: 96, icon: '🌐' },
+    { name: 'JavaScript (ES6+)', level: 95, icon: '🟨' },
+  ],
+  ai_tools: [
+    { name: 'TensorFlow', level: 88, icon: '🧠' },
+    { name: 'OpenCV', level: 90, icon: '👁️' },
+    { name: 'MediaPipe', level: 88, icon: '✋' },
+    { name: 'Gemini API', level: 92, icon: '✨' },
+    { name: 'Clerk Auth', level: 90, icon: '🔐' },
+    { name: 'PayPal API', level: 85, icon: '💳' },
+    { name: 'Cisco IT Essentials', level: 94, icon: '🔌' },
   ],
 };
 
@@ -62,8 +65,8 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: index * 0.06 }}
-      whileHover={{ scale: 1.03, y: -2 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      whileHover={{ scale: 1.02, y: -2 }}
       className="glass glass-hover rounded-xl p-4 flex flex-col gap-3"
     >
       <div className="flex items-center justify-between">
@@ -104,13 +107,13 @@ export function Skills() {
           className="text-center mb-12"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Expertise
+            Technical Stack
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Tech Stack & <span className="gradient-text">Skills</span>
+            Skills & <span className="gradient-text">Technologies</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Tools and technologies I&apos;ve used in production environments at scale.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+            Languages, frameworks, databases, and AI libraries leveraged across full-stack production systems.
           </p>
         </motion.div>
 

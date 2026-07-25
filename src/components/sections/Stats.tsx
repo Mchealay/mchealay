@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { TrendingUp, Users, Zap, Activity } from 'lucide-react';
+import { motion, useInView, Variants } from 'framer-motion';
+import { GraduationCap, Award, Cpu, Code2 } from 'lucide-react';
 
 interface Stat {
   id: string;
@@ -18,42 +18,42 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    id: 'stat-uptime',
-    icon: <Activity className="w-6 h-6" />,
-    value: 99.9,
-    suffix: '%',
-    label: 'Uptime Maintained',
-    description: 'Across production microservices with zero-downtime deployments',
-    color: 'text-emerald-400',
-    iconBg: 'bg-emerald-400/10 border-emerald-400/20 text-emerald-400',
-  },
-  {
-    id: 'stat-latency',
-    icon: <Zap className="w-6 h-6" />,
-    value: 40,
-    suffix: '%',
-    label: 'Latency Reduction',
-    description: 'Average API response time improvement through caching & query optimization',
+    id: 'stat-gpa',
+    icon: <GraduationCap className="w-6 h-6" />,
+    value: 3.67,
+    suffix: '',
+    label: 'Academic GPA / 4.0',
+    description: 'B.Sc. in Software Engineering at Mekelle University (2019 – 2026)',
     color: 'text-cyan-400',
     iconBg: 'bg-cyan-400/10 border-cyan-400/20 text-cyan-400',
   },
   {
-    id: 'stat-users',
-    icon: <Users className="w-6 h-6" />,
-    value: 50,
-    suffix: 'k+',
-    label: 'Daily Active Users',
-    description: 'Handled at peak load with auto-scaling infrastructure on AWS',
+    id: 'stat-exit-exam',
+    icon: <Award className="w-6 h-6" />,
+    value: 86.25,
+    suffix: '%',
+    label: 'National Exit Exam',
+    description: 'Top national score achieved in Software Engineering Exit Exam',
+    color: 'text-emerald-400',
+    iconBg: 'bg-emerald-400/10 border-emerald-400/20 text-emerald-400',
+  },
+  {
+    id: 'stat-projects',
+    icon: <Code2 className="w-6 h-6" />,
+    value: 5,
+    suffix: '+',
+    label: 'Production Projects',
+    description: 'Delivered across AI, healthcare, real estate, career tech & governance',
     color: 'text-indigo-400',
     iconBg: 'bg-indigo-400/10 border-indigo-400/20 text-indigo-400',
   },
   {
-    id: 'stat-projects',
-    icon: <TrendingUp className="w-6 h-6" />,
+    id: 'stat-ai-gestures',
+    icon: <Cpu className="w-6 h-6" />,
     value: 30,
-    suffix: '+',
-    label: 'Projects Shipped',
-    description: 'End-to-end delivery from architecture to production across 5+ years',
+    suffix: ' (ሀ-ፐ)',
+    label: 'Tigrinya Sign Letters',
+    description: 'First real-time AI computer vision recognition model (20k+ training images)',
     color: 'text-amber-400',
     iconBg: 'bg-amber-400/10 border-amber-400/20 text-amber-400',
   },
@@ -77,14 +77,14 @@ function CountUp({ target, suffix, prefix = '' }: { target: number; suffix: stri
         setCount(target);
         clearInterval(timer);
       } else {
-        setCount(parseFloat(start.toFixed(1)));
+        setCount(parseFloat(start.toFixed(2)));
       }
     }, step);
 
     return () => clearInterval(timer);
   }, [inView, target]);
 
-  const display = Number.isInteger(target) ? Math.floor(count) : count.toFixed(1);
+  const display = Number.isInteger(target) ? Math.floor(count) : count.toFixed(2);
 
   return (
     <span ref={ref}>
@@ -95,14 +95,14 @@ function CountUp({ target, suffix, prefix = '' }: { target: number; suffix: stri
   );
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
 };
 
 export function Stats() {
@@ -112,7 +112,6 @@ export function Stats() {
   return (
     <section id="stats" className="section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -121,17 +120,16 @@ export function Stats() {
           ref={ref}
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Engineering Impact
+            Proven Performance
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Metrics that <span className="gradient-text">matter</span>
+            Key <span className="gradient-text">Highlights</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Real numbers from real systems. Each metric represents a solved problem and a team that shipped faster.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+            Quantifiable achievements in software engineering academics, AI model development, and full-stack software delivery.
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -146,21 +144,18 @@ export function Stats() {
               whileHover={{ y: -6, scale: 1.02 }}
               className="glass glass-hover gradient-border rounded-2xl p-6 flex flex-col gap-4 group"
             >
-              {/* Icon */}
               <div className={`w-12 h-12 rounded-xl border flex items-center justify-center ${stat.iconBg} group-hover:scale-110 transition-transform`}>
                 {stat.icon}
               </div>
 
-              {/* Value */}
               <div>
-                <div className={`text-4xl font-extrabold tracking-tight ${stat.color}`}>
+                <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${stat.color}`}>
                   <CountUp target={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-white font-semibold mt-1 text-sm">{stat.label}</div>
               </div>
 
-              {/* Description */}
-              <p className="text-xs text-slate-500 leading-relaxed">{stat.description}</p>
+              <p className="text-xs text-slate-400 leading-relaxed">{stat.description}</p>
             </motion.div>
           ))}
         </motion.div>

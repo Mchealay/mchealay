@@ -16,31 +16,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Chen — Full-Stack Engineer",
+  title: "Mchealay Hafte — Full-Stack Software Developer",
   description:
-    "Full-Stack Engineer specializing in scalable systems, high-performance APIs, and modern web experiences. Currently available for new opportunities.",
+    "Full-Stack Software Developer specializing in AI-powered applications, NestJS microservices, Python OpenCV vision systems, and Next.js platforms. B.Sc. Software Engineering Mekelle University (GPA 3.67/4.0).",
   keywords: [
-    "Full-Stack Engineer",
-    "Software Engineer",
-    "React",
+    "Mchealay Hafte",
+    "Full-Stack Developer",
+    "Software Developer",
+    "Python",
+    "Django",
     "Next.js",
-    "TypeScript",
-    "Node.js",
+    "NestJS",
+    "Flutter",
+    "OpenCV",
+    "MediaPipe",
+    "PostgreSQL",
+    "MongoDB",
+    "Tigrinya Sign Language",
+    "Mekelle University",
     "Portfolio",
   ],
-  authors: [{ name: "Alex Chen" }],
+  authors: [{ name: "Mchealay Hafte", url: "https://mchealay.vercel.app" }],
   openGraph: {
-    title: "Alex Chen — Full-Stack Engineer",
+    title: "Mchealay Hafte — Full-Stack Software Developer",
     description:
-      "Full-Stack Engineer specializing in scalable systems, high-performance APIs, and modern web experiences.",
+      "Full-Stack Developer delivering AI-powered solutions in healthcare, education, career tech & governance.",
+    url: "https://mchealay.vercel.app",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Chen — Full-Stack Engineer",
+    title: "Mchealay Hafte — Full-Stack Software Developer",
     description:
-      "Full-Stack Engineer specializing in scalable systems, high-performance APIs, and modern web experiences.",
+      "Full-Stack Developer delivering AI-powered solutions in healthcare, education, career tech & governance.",
   },
 };
 

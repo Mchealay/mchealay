@@ -2,9 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 
-interface Experience {
+interface ExperienceItem {
   id: string;
   company: string;
   role: string;
@@ -15,68 +15,25 @@ interface Experience {
   accent: string;
 }
 
-const experiences: Experience[] = [
+const experiences: ExperienceItem[] = [
   {
-    id: 'exp-techcorp',
-    company: 'TechCorp Global',
-    role: 'Senior Full-Stack Engineer',
-    period: 'Jan 2023 – Present',
-    location: 'Remote',
-    type: 'Full-time',
+    id: 'exp-vite-plc',
+    company: 'Vite PLC',
+    role: 'Backend Developer (Intern)',
+    period: 'Mar 2025 – May 2025',
+    location: 'Mekelle, Ethiopia',
+    type: 'Internship',
     accent: 'from-cyan-500 to-indigo-500',
     bullets: [
-      'Led migration of monolithic API to microservices, reducing p95 latency by 40% and enabling independent team deployments.',
-      'Designed and shipped a real-time notification system handling 500k+ events/hour using Kafka + WebSockets.',
-      'Introduced comprehensive observability stack (Datadog, OpenTelemetry) achieving 99.9% uptime SLA.',
-      'Mentored 4 junior engineers through code reviews, architecture sessions, and career planning.',
-    ],
-  },
-  {
-    id: 'exp-startupxyz',
-    company: 'StartupXYZ',
-    role: 'Full-Stack Engineer',
-    period: 'Mar 2021 – Dec 2022',
-    location: 'San Francisco, CA (Hybrid)',
-    type: 'Full-time',
-    accent: 'from-indigo-500 to-purple-500',
-    bullets: [
-      'Built the core product from 0 to 1 — designed architecture, selected stack, and shipped MVP in 8 weeks.',
-      'Grew the platform to 50k+ DAU by implementing CDN caching, lazy loading, and database query optimization.',
-      'Implemented multi-tenancy with row-level security in PostgreSQL, supporting enterprise customer onboarding.',
-      'Created internal design system with 40+ reusable React components, cutting UI dev time by 35%.',
-    ],
-  },
-  {
-    id: 'exp-devagency',
-    company: 'DevAgency Labs',
-    role: 'Software Engineer',
-    period: 'Jun 2019 – Feb 2021',
-    location: 'New York, NY',
-    type: 'Full-time',
-    accent: 'from-amber-500 to-orange-500',
-    bullets: [
-      'Delivered 12+ client projects across fintech, e-commerce, and healthcare verticals.',
-      'Built RESTful APIs consumed by 200k+ monthly active users with 99.5% uptime.',
-      'Integrated third-party services (Stripe, Twilio, Sendgrid) reducing integration time by 60% via shared libraries.',
-      'Improved CI/CD pipeline reliability, cutting deployment failures by 80% with automated testing gates.',
-    ],
-  },
-  {
-    id: 'exp-freelance',
-    company: 'Freelance',
-    role: 'Full-Stack Developer',
-    period: 'Sep 2018 – May 2019',
-    location: 'Remote',
-    type: 'Contract',
-    accent: 'from-emerald-500 to-teal-500',
-    bullets: [
-      'Contracted on 5 client projects including SaaS dashboards, e-commerce stores, and mobile APIs.',
-      'Built automated deployment scripts reducing client server setup from 4 hours to 15 minutes.',
+      'Engineered core backend services and microservice modules for a enterprise life insurance management platform using NestJS and PostgreSQL.',
+      'Architected database schemas and ORM relationships using Prisma to handle policy lifecycle, member registrations, and claim submissions.',
+      'Designed and documented RESTful API endpoints with structured DTO validations and global exception filters.',
+      'Collaborated with senior software engineers on code reviews, database indexing, and performance optimization.',
     ],
   },
 ];
 
-function TimelineItem({ exp, index, total }: { exp: Experience; index: number; total: number }) {
+function TimelineItem({ exp, index, total }: { exp: ExperienceItem; index: number; total: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -85,49 +42,55 @@ function TimelineItem({ exp, index, total }: { exp: Experience; index: number; t
       ref={ref}
       initial={{ opacity: 0, x: -30 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeInOut' }}
       id={exp.id}
       className="relative flex gap-6"
     >
       {/* Timeline line + dot */}
       <div className="flex flex-col items-center">
         <div
-          className={`w-4 h-4 rounded-full bg-gradient-to-br ${exp.accent} shrink-0 mt-1 shadow-lg ring-4 ring-[#090D16]`}
-        />
+          className={`w-5 h-5 rounded-full bg-gradient-to-br ${exp.accent} shrink-0 mt-1 shadow-lg ring-4 ring-[#090D16] flex items-center justify-center`}
+        >
+          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+        </div>
         {index < total - 1 && (
           <div className="flex-1 w-px bg-gradient-to-b from-white/15 to-transparent mt-2" />
         )}
       </div>
 
       {/* Content */}
-      <div className={`pb-10 ${index === total - 1 ? '' : ''}`}>
-        <div className="glass glass-hover gradient-border rounded-2xl p-5 md:p-6">
+      <div className="pb-10 flex-1">
+        <div className="glass glass-hover gradient-border rounded-2xl p-6 md:p-7 space-y-4">
           {/* Header */}
-          <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+          <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h3 className="text-lg font-bold text-white">{exp.role}</h3>
-              <div className="flex items-center gap-2 mt-0.5">
-                <Briefcase className="w-3.5 h-3.5 text-slate-500" />
-                <span className={`text-sm font-semibold gradient-text`}>{exp.company}</span>
-                <span className="text-xs text-slate-600">·</span>
-                <span className="text-xs text-slate-500">{exp.type}</span>
+              <span className="text-xs font-semibold uppercase tracking-widest text-cyan-400 block mb-1">
+                {exp.type}
+              </span>
+              <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+              <div className="flex items-center gap-2 mt-1">
+                <Briefcase className="w-4 h-4 text-slate-400" />
+                <span className="text-base font-semibold text-slate-200">{exp.company}</span>
               </div>
             </div>
-            <div className="flex flex-col items-end gap-1">
-              <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                <Calendar className="w-3 h-3" />
+            <div className="flex flex-col sm:items-end gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1.5 font-mono">
+                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                 {exp.period}
               </div>
-              <span className="text-xs text-slate-600">{exp.location}</span>
+              <div className="flex items-center gap-1.5 text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-indigo-400" />
+                {exp.location}
+              </div>
             </div>
           </div>
 
           {/* Bullets */}
-          <ul className="space-y-2">
+          <ul className="space-y-2.5 pt-2 border-t border-white/5">
             {exp.bullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-400 leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-400 shrink-0" />
-                {bullet}
+              <li key={i} className="flex items-start gap-2.5 text-sm text-slate-300 leading-relaxed">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <span>{bullet}</span>
               </li>
             ))}
           </ul>
@@ -143,7 +106,7 @@ export function Experience() {
 
   return (
     <section id="experience" className="section-padding">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
@@ -152,13 +115,13 @@ export function Experience() {
           className="text-center mb-16"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Career
+            Work Experience
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Work <span className="gradient-text">Experience</span>
+            Professional <span className="gradient-text">Journey</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            5+ years building production systems across startups, agencies, and enterprise scale.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+            Hands-on engineering experience designing enterprise backends and full-stack software solutions.
           </p>
         </motion.div>
 
