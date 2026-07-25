@@ -59,11 +59,10 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={controls}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'glass border-b border-white/8 shadow-lg shadow-black/20'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? 'glass border-b border-white/8 shadow-lg shadow-black/20'
+          : 'bg-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -86,11 +85,10 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 animated-underline ${
-                      isActive
-                        ? 'text-cyan-400'
-                        : 'text-slate-400 hover:text-white hover:bg-white/5'
-                    }`}
+                    className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 animated-underline ${isActive
+                      ? 'text-cyan-400'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                      }`}
                   >
                     {link.label}
                     {isActive && (
@@ -107,7 +105,7 @@ export function Navbar() {
                 href="#contact"
                 className="ml-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
               >
-                Hire Mchealay
+                Hire Me
               </a>
             </nav>
 
@@ -147,7 +145,7 @@ export function Navbar() {
             onClick={() => setIsOpen(false)}
             className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white text-center"
           >
-            Hire Mchealay
+            Hire Me
           </a>
         </nav>
       </motion.div>
