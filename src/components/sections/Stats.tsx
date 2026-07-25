@@ -42,7 +42,7 @@ const stats: Stat[] = [
   {
     id: 'stat-projects',
     icon: <Code2 className="w-6 h-6" />,
-    value: 5,
+    value: 10,
     suffix: '+',
     label: 'Production Projects',
     description: 'Delivered across AI, healthcare, real estate, career tech & governance',

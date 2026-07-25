@@ -92,11 +92,10 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={controls}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? 'bg-[#060A12]/80 backdrop-blur-xl border-b border-white/6 shadow-2xl shadow-black/30'
             : 'bg-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -106,7 +105,7 @@ export function Navbar() {
                 <Code2 className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-white text-[17px] tracking-tight">
-                mchealay<span className="gradient-text">.dev</span>
+                Mchealay<span className="gradient-text">.dev</span>
               </span>
             </Link>
 
@@ -119,11 +118,10 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className={`relative px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
-                      isActive
+                    className={`relative px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${isActive
                         ? 'text-cyan-400 font-semibold'
                         : 'text-slate-400 hover:text-white hover:bg-white/5'
-                    }`}
+                      }`}
                   >
                     {link.label}
                     {isActive && (
@@ -207,11 +205,10 @@ export function Navbar() {
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04, duration: 0.2 }}
-                      className={`px-4 py-3.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
-                        isActive
+                      className={`px-4 py-3.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${isActive
                           ? 'bg-gradient-to-r from-cyan-500/12 to-indigo-500/8 text-cyan-400 border border-cyan-400/18 font-semibold'
                           : 'text-slate-300 hover:text-white hover:bg-white/6 border border-transparent'
-                      }`}
+                        }`}
                     >
                       <span>{link.label}</span>
                       {isActive && (
