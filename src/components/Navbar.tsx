@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Menu, X, Code2 } from 'lucide-react';
 
 const navLinks = [
+  { href: '#about', label: 'About' },
   { href: '#stats', label: 'Highlights' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
@@ -18,8 +19,18 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('about');
   const controls = useAnimation();
+
+  // Always reset scroll to top (Hero/About) on page refresh
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -28,15 +39,19 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.replace('#', ''));
+    const sectionIds = ['about', 'hero', ...navLinks.map((l) => l.href.replace('#', ''))];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const observer = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { rootMargin: '-40% 0px -55% 0px' }
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id === 'hero' ? 'about' : id);
+          }
+        },
+        { rootMargin: '-30% 0px -50% 0px' }
       );
       observer.observe(el);
       observers.push(observer);
@@ -69,7 +84,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <Link href="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-2.5 group shrink-0">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:shadow-cyan-500/45 group-hover:scale-105 transition-all duration-200">
                 <Code2 className="w-4 h-4 text-white" />
               </div>
@@ -89,7 +104,7 @@ export function Navbar() {
                     href={link.href}
                     className={`relative px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
                       isActive
-                        ? 'text-cyan-400'
+                        ? 'text-cyan-400 font-semibold'
                         : 'text-slate-400 hover:text-white hover:bg-white/5'
                     }`}
                   >

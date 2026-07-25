@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { Mail, ExternalLink, ArrowRight, Zap, Phone, Award, GraduationCap, MapPin, Sparkles } from 'lucide-react';
+import { Mail, ExternalLink, ArrowRight, Zap, Phone, Award, GraduationCap, MapPin, Sparkles, UserCheck } from 'lucide-react';
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -80,12 +80,14 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid"
     >
+      {/* Anchor for #about navigation link */}
+      <div id="about" className="absolute top-0 left-0" />
+
       {/* Multi-layer ambient glow orbs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-80 h-80 sm:w-[450px] sm:h-[450px] bg-cyan-500/8 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 sm:w-[450px] sm:h-[450px] bg-indigo-500/8 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[700px] sm:h-[700px] bg-cyan-500/4 rounded-full blur-[120px]" />
-        {/* Extra subtle accent orbs */}
         <div className="absolute top-10 right-1/4 w-40 h-40 bg-indigo-400/6 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-emerald-400/5 rounded-full blur-3xl" />
       </div>
@@ -97,8 +99,8 @@ export function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-5 sm:gap-6 text-center"
         >
-          {/* — Availability Badge — */}
-          <motion.div variants={itemVariants}>
+          {/* — Availability & About Badge — */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-2">
             <span className="badge-glow inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/25 bg-emerald-400/8 text-emerald-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
@@ -131,15 +133,25 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* — Professional Summary — */}
-          <motion.p
+          {/* — Integrated About Me Section Bio — */}
+          <motion.div
             variants={itemVariants}
-            className="max-w-2xl text-sm sm:text-base lg:text-lg text-slate-400 leading-relaxed sm:leading-loose"
+            className="w-full max-w-3xl glass glass-rich gradient-border rounded-2xl p-5 sm:p-6 space-y-3 text-left my-1"
           >
-            Delivering{' '}
-            <span className="text-cyan-400 font-semibold">AI-powered, full-stack solutions</span>{' '}
-            across healthcare, education, career tech &amp; governance. Skilled in Python, Django, Node.js, NestJS, Next.js, Flutter, PostgreSQL &amp; MongoDB.
-          </motion.p>
+            <div className="flex items-center gap-2 border-b border-white/6 pb-2.5">
+              <UserCheck className="w-4 h-4 text-cyan-400" />
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-cyan-400">
+                About Me
+              </h2>
+            </div>
+
+            <p className="text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed sm:leading-loose">
+              I am a results-oriented <span className="text-cyan-400 font-semibold">Full-Stack Software Developer</span> specializing in scalable web systems, backend APIs, and computer vision AI. Graduated from Mekelle University with a <span className="text-white font-medium">3.67 GPA</span> and an <span className="text-emerald-400 font-semibold">86.25% score</span> on the National Software Engineering Exit Exam.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              I build production-grade solutions using <span className="text-slate-200 font-medium">Python, Node.js, NestJS, Next.js, Django, Flutter, PostgreSQL, and MongoDB</span> across AI healthcare, education tech, career portals, and government real estate.
+            </p>
+          </motion.div>
 
           {/* — Highlight Chips — */}
           <motion.div
@@ -218,7 +230,7 @@ export function Hero() {
           {/* — Scroll Indicator — */}
           <motion.div
             variants={itemVariants}
-            className="hidden sm:flex flex-col items-center gap-2 mt-4 text-slate-600"
+            className="hidden sm:flex flex-col items-center gap-2 mt-2 text-slate-600"
           >
             <span className="text-[11px] tracking-widest uppercase font-medium">Scroll</span>
             <motion.div
@@ -226,7 +238,7 @@ export function Hero() {
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               className="w-5 h-9 rounded-full border border-slate-700/60 flex items-start justify-center pt-1.5"
             >
-              <div className="w-1 h-2 rounded-full bg-gradient-to-b from-cyan-400/80 to-transparent" />
+              <div className="w-1.5 h-2.5 rounded-full bg-gradient-to-b from-cyan-400/80 to-transparent" />
             </motion.div>
           </motion.div>
         </motion.div>
