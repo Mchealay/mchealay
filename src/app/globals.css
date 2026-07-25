@@ -50,8 +50,7 @@ img, video, iframe, object, embed, canvas {
 pre, code {
   max-width: 100%;
   white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* ========================
@@ -278,17 +277,12 @@ pre, code {
 }
 
 /* ========================
-   MOBILE TOUCH TARGETS & SAFETY (<480px)
+   MOBILE TOUCH TARGETS (<480px)
    ======================== */
 @media (max-width: 480px) {
   .touch-target {
     min-height: 44px;
     min-width: 44px;
-  }
-
-  h1, h2, h3, h4, p, span, a, button, input, textarea {
-    overflow-wrap: break-word;
-    word-break: break-word;
   }
 }
 

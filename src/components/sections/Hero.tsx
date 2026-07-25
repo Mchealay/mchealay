@@ -11,7 +11,7 @@ const GithubIcon = () => (
 
 const LinkedinIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 );
 
@@ -114,7 +114,7 @@ export function Hero() {
           <motion.div variants={itemVariants} className="space-y-3 w-full">
             {/* Location mini-chip */}
             <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
-              <MapPin className="w-3 h-3 text-indigo-400" />
+              <MapPin className="w-3 h-3 text-indigo-400 shrink-0" />
               <span>Mekelle, Ethiopia &nbsp;·&nbsp; Open to Remote Worldwide</span>
             </div>
 
@@ -139,7 +139,7 @@ export function Hero() {
             className="w-full max-w-3xl glass glass-rich gradient-border rounded-2xl p-5 sm:p-6 space-y-3 text-left my-1"
           >
             <div className="flex items-center gap-2 border-b border-white/6 pb-2.5">
-              <UserCheck className="w-4 h-4 text-cyan-400" />
+              <UserCheck className="w-4 h-4 text-cyan-400 shrink-0" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-cyan-400">
                 About Me
               </h2>
@@ -156,12 +156,12 @@ export function Hero() {
           {/* — Highlight Chips — */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-2"
+            className="flex flex-wrap items-center justify-center gap-2 max-w-2xl"
           >
             {highlights.map((chip) => (
               <span
                 key={chip.text}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] sm:text-xs text-slate-300 font-medium ${chip.color}`}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] sm:text-xs text-slate-300 font-medium whitespace-nowrap ${chip.color}`}
               >
                 {chip.icon}
                 {chip.text}
@@ -178,18 +178,18 @@ export function Hero() {
             <a
               id="view-projects-btn"
               href="#projects"
-              className="btn-gradient relative group px-7 py-3.5 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto overflow-hidden"
+              className="btn-gradient relative group px-6 py-3.5 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-300 flex items-center justify-center gap-2.5 w-full sm:w-auto overflow-hidden whitespace-nowrap"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 shrink-0" />
               View My Projects
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
             </a>
 
             {/* Secondary CTA */}
             <a
               id="contact-btn"
               href="#contact"
-              className="relative px-7 py-3.5 rounded-2xl font-semibold text-sm glass border border-white/12 text-slate-200 hover:bg-white/8 hover:border-cyan-400/35 hover:text-white transition-all duration-300 text-center w-full sm:w-auto"
+              className="relative px-6 py-3.5 rounded-2xl font-semibold text-sm glass border border-white/12 text-slate-200 hover:bg-white/8 hover:border-cyan-400/35 hover:text-white transition-all duration-300 text-center w-full sm:w-auto whitespace-nowrap"
             >
               Get in Touch
             </a>
@@ -200,9 +200,9 @@ export function Hero() {
               href="https://mchealay.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-2xl font-semibold text-sm border border-cyan-400/25 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="px-6 py-3.5 rounded-2xl font-semibold text-sm border border-cyan-400/25 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4 shrink-0" />
               mchealay.vercel.app
             </a>
           </motion.div>
