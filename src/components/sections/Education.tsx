@@ -74,7 +74,7 @@ export function Education() {
                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 font-mono">
                   2019 — 2026
                 </span>
-                <span className="text-xs text-slate-400 font-mono">Mekelle, Ethiopia</span>
+                <span className="text-xs text-slate-400 font-mono">Addis Ababa, Ethiopia</span>
               </div>
 
               <div>
