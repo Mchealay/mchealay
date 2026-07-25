@@ -20,12 +20,18 @@
   --glow-indigo: rgba(129, 140, 248, 0.15);
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -34,7 +40,18 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+}
+
+img, video, iframe, object, embed, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+pre, code {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* ========================
@@ -183,7 +200,7 @@ body {
    SECTION PADDING
    ======================== */
 .section-padding {
-  padding: 3rem 1rem;
+  padding: 3rem 0.875rem;
 }
 
 @media (min-width: 480px) {
@@ -261,12 +278,17 @@ body {
 }
 
 /* ========================
-   MOBILE TOUCH TARGETS
+   MOBILE TOUCH TARGETS & SAFETY (<480px)
    ======================== */
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .touch-target {
     min-height: 44px;
     min-width: 44px;
+  }
+
+  h1, h2, h3, h4, p, span, a, button, input, textarea {
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 
