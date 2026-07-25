@@ -185,25 +185,30 @@ export function Playground() {
   };
 
   return (
-    <section id="playground" className="section-padding">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
+    <section id="playground" className="section-padding relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[500px] h-[350px] bg-cyan-500/4 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Interactive CLI
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/8 border border-cyan-400/15 text-cyan-400 text-[11px] sm:text-xs font-semibold tracking-widest uppercase mb-4">
+            💻 Interactive CLI
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
             Terminal <span className="gradient-text">Playground</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
             Explore Mchealay&apos;s CV interactively. Try running{' '}
-            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">help</code>,{' '}
-            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">education</code>, or{' '}
-            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-sm">api</code>.
+            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-xs font-mono">help</code>,{' '}
+            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-xs font-mono">education</code>, or{' '}
+            <code className="text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded text-xs font-mono">api</code>.
           </p>
         </motion.div>
 

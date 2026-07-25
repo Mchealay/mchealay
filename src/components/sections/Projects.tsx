@@ -577,16 +577,16 @@ export function Projects() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Featured Systems &amp; Applications
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/8 border border-cyan-400/15 text-cyan-400 text-[11px] sm:text-xs font-semibold tracking-widest uppercase mb-4">
+            🚀 Featured Systems &amp; Applications
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3">
             Production <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Full-stack &amp; AI solutions engineered for real-world impact across healthcare, education, career tech, and governance. Each project includes complete source code on GitHub.
+            Full-stack &amp; AI solutions engineered for real-world impact across healthcare, education, career tech &amp; governance. Each project includes complete source code on GitHub.
           </p>
         </motion.div>
 

@@ -50,23 +50,28 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-padding relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[400px] bg-indigo-500/4 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Let&apos;s Connect
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-400/8 border border-emerald-400/15 text-emerald-400 text-[11px] sm:text-xs font-semibold tracking-widest uppercase mb-4">
+            ✉️ Let&apos;s Connect
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
             Get in <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Looking for a passionate Full-Stack Software Developer? Reach out for job opportunities, freelance projects, or technical collaboration.
+            Looking for a passionate Full-Stack Developer? Reach out for job opportunities, freelance projects, or technical collaboration.
           </p>
         </motion.div>
 

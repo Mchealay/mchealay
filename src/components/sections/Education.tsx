@@ -37,23 +37,26 @@ export function Education() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="education" className="section-padding relative">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="section-padding relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute left-0 top-1/3 w-[400px] h-[400px] bg-indigo-500/4 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Academic Excellence
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-400/8 border border-indigo-400/15 text-indigo-400 text-[11px] sm:text-xs font-semibold tracking-widest uppercase mb-4">
+            🎓 Academic Excellence
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Education & <span className="gradient-text">Certifications</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+            Education &amp; <span className="gradient-text">Certifications</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Strong academic foundations in software engineering and continuous technical learning.
+            Strong academic foundations in software engineering &amp; continuous technical learning.
           </p>
         </motion.div>
 
