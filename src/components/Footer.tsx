@@ -54,11 +54,11 @@ export function Footer() {
                   <Code2 className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-bold text-white text-lg tracking-tight">
-                  mchealay<span className="gradient-text">.dev</span>
+                  Mchealay<span className="gradient-text">.dev</span>
                 </span>
               </div>
               <p className="text-slate-500 text-xs sm:text-sm text-center lg:text-left max-w-[220px] leading-relaxed">
-                Full-Stack Developer building AI-powered solutions from Mekelle, Ethiopia.
+                Full-Stack Developer building AI-powered solutions from Addis Ababa, Ethiopia.
               </p>
 
               {/* Social Links */}

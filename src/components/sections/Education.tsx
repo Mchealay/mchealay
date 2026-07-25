@@ -133,8 +133,8 @@ export function Education() {
               <ul className="space-y-3 pt-2">
                 {[
                   { lang: 'English', proficiency: 'Professional Working Proficiency', flag: '🇬🇧' },
-                  { lang: 'Amharic', proficiency: 'Native / Bilingual', flag: '🇪🇹' },
-                  { lang: 'Tigrigna', proficiency: 'Native / Bilingual', flag: '🇪🇹' },
+                  { lang: 'Amharic', proficiency: 'Native', flag: '🇪🇹' },
+                  { lang: 'Tigrigna', proficiency: 'Native', flag: '🇪🇹' },
                 ].map((item) => (
                   <li
                     key={item.lang}

@@ -169,7 +169,7 @@ export function Contact() {
               <div className="space-y-2 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  Mekelle, Ethiopia (Open to Remote Worldwide)
+                  Addiss Ababa, Ethiopia (Open to Remote Worldwide)
                 </div>
                 <p className="leading-relaxed">
                   Open to full-time engineering roles, backend microservice projects, and AI system consulting.

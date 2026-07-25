@@ -82,7 +82,7 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-24">
         <div className="flex flex-col items-center gap-5 sm:gap-6 text-center">
-          
+
           {/* — Availability Badge (Static clean status indicator) — */}
           <div
             className="flex flex-wrap items-center justify-center gap-2 animate-fade-in"
@@ -102,7 +102,7 @@ export function Hero() {
             {/* Location mini-chip */}
             <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
               <MapPin className="w-3 h-3 text-indigo-400 shrink-0" />
-              <span>Mekelle, Ethiopia &nbsp;·&nbsp; Open to Remote Worldwide</span>
+              <span>Addis Ababa, Ethiopia &nbsp;·&nbsp; Open to Remote Worldwide</span>
             </div>
 
             <h1 className="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05]">
