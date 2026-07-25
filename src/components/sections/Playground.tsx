@@ -27,12 +27,10 @@ const COMMANDS: Record<string, () => OutputLine> = {
   about: () => ({
     type: 'success',
     content: [
-      '╭───────────────────────────────────────────────────╮',
-      '│  MCHEALAY HAFTE · Full-Stack Software Developer   │',
-      '│  Mekelle, Ethiopia / Remote                        │',
-      '│  Delivering AI-powered solutions in healthcare,  │',
-      '│  education, career tech, and governance.           │',
-      '╰───────────────────────────────────────────────────╯',
+      'MCHEALAY HAFTE · Full-Stack Software Developer',
+      'Location: Mekelle, Ethiopia (Open to Remote)',
+      'Delivering AI-powered solutions in healthcare,',
+      'education, career tech, and governance.',
     ],
   }),
   skills: () => ({
@@ -239,15 +237,15 @@ export function Playground() {
 
           {/* Terminal body */}
           <div
-            className="bg-[#0d1117] h-80 overflow-y-auto p-4 terminal-font text-xs sm:text-sm cursor-text"
+            className="bg-[#0d1117] h-72 sm:h-80 overflow-y-auto p-3 sm:p-4 terminal-font text-[11px] sm:text-sm cursor-text leading-relaxed"
             onClick={() => inputRef.current?.focus()}
           >
             {history.map((line, i) => {
               const lines = Array.isArray(line.content) ? line.content : [line.content];
               return (
-                <div key={i} className={`${lineStyle[line.type]} mb-0.5`}>
+                <div key={i} className={`${lineStyle[line.type]} mb-0.5 whitespace-pre-wrap break-words`}>
                   {lines.map((l, j) => (
-                    <div key={j} className="leading-6">
+                    <div key={j} className="leading-5 sm:leading-6">
                       {l || '\u00A0'}
                     </div>
                   ))}
@@ -277,7 +275,7 @@ export function Playground() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent outline-none caret-cyan-400 text-slate-200 placeholder-slate-600 terminal-font"
+                className="flex-1 min-w-0 bg-transparent outline-none caret-cyan-400 text-slate-200 placeholder-slate-600 terminal-font text-xs sm:text-sm"
                 placeholder="type a command..."
                 autoComplete="off"
                 spellCheck={false}
@@ -287,7 +285,7 @@ export function Playground() {
           </div>
 
           {/* Quick command buttons */}
-          <div className="px-4 py-3 bg-[#0d1117] border-t border-white/5 flex flex-wrap gap-2">
+          <div className="px-3 sm:px-4 py-3 bg-[#0d1117] border-t border-white/5 flex flex-wrap gap-1.5 sm:gap-2">
             {['help', 'about', 'skills', 'projects', 'education', 'contact', 'api'].map((cmd) => (
               <button
                 key={cmd}
@@ -296,9 +294,9 @@ export function Playground() {
                   runCommand(cmd);
                   inputRef.current?.focus();
                 }}
-                className="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/8 text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all font-mono flex items-center gap-1"
+                className="px-2.5 py-1 text-[11px] sm:text-xs rounded-lg bg-white/5 border border-white/8 text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all font-mono flex items-center gap-1 shrink-0"
               >
-                <CornerDownLeft className="w-3 h-3" />
+                <CornerDownLeft className="w-3 h-3 shrink-0" />
                 {cmd}
               </button>
             ))}

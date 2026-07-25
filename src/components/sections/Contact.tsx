@@ -200,12 +200,12 @@ export function Contact() {
 
           {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-3"
           >
-            <div className="glass gradient-border rounded-2xl p-6 md:p-8">
+            <div className="glass gradient-border rounded-2xl p-4 sm:p-6 md:p-8">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}

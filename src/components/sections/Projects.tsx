@@ -76,7 +76,7 @@ const projects: Project[] = [
         caption: 'Model training analytics dashboard for 20,000+ gesture image dataset',
       },
     ],
-    githubUrl: 'https://github.com/mchealay/TASL-Sign-Language-Recognition',
+    githubUrl: 'https://github.com/Mchealay/sign-language',
     accent: 'from-cyan-500/20 to-indigo-500/10',
   },
   {
@@ -145,7 +145,7 @@ const projects: Project[] = [
         caption: 'HomeHub property search interface and interactive listing cards',
       },
     ],
-    githubUrl: 'https://github.com/mchealay/HomeHub-Real-Estate',
+    githubUrl: 'https://github.com/Mchealay/HomeHub',
     accent: 'from-amber-500/20 to-orange-500/10',
   },
   {
@@ -186,7 +186,7 @@ export class TenantService {
     return new TenantContext(tenant);
   }
 }`,
-    githubUrl: 'https://github.com/mchealay/EHealthSuite-Insurance',
+    githubUrl: 'https://github.com/EthiopianInsuranceCoorpration/EIC',
     accent: 'from-emerald-500/20 to-teal-500/10',
   },
   {
@@ -221,7 +221,7 @@ export const searchJobs = async (req: Request, res: Response) => {
   const jobs = await Job.find(filter).sort({ createdAt: -1 }).limit(20);
   return res.status(200).json({ success: true, count: jobs.length, data: jobs });
 };`,
-    githubUrl: 'https://github.com/mchealay/Job-Board-Platform',
+    githubUrl: 'https://github.com/Mchealay/jobBoard',
     accent: 'from-cyan-500/20 to-blue-500/10',
   },
 ];
@@ -357,11 +357,10 @@ function ImageGallery({
                 <button
                   key={img.url}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === currentIndex
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
                       ? 'w-6 bg-gradient-to-r from-cyan-400 to-indigo-400'
                       : 'w-2 bg-white/20 hover:bg-white/40'
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -406,20 +405,20 @@ function CodeArchitecturePreview({ project }: { project: Project }) {
       </div>
 
       {/* Code Editor Body */}
-      <div className="p-4 font-mono text-xs text-slate-300 bg-[#080b11] overflow-x-auto flex-1 leading-relaxed">
-        <div className="flex items-center gap-2 text-slate-500 mb-2 pb-2 border-b border-white/5 text-[11px]">
-          <Server className="w-3.5 h-3.5 text-indigo-400" />
-          <span>System Architecture & API Logic</span>
+      <div className="p-3 sm:p-4 font-mono text-[11px] sm:text-xs text-slate-300 bg-[#080b11] overflow-x-auto flex-1 leading-relaxed">
+        <div className="flex items-center gap-2 text-slate-500 mb-2 pb-2 border-b border-white/5 text-[10px] sm:text-[11px]">
+          <Server className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+          <span>System Architecture &amp; API Logic</span>
         </div>
-        <pre className="text-cyan-300/90 whitespace-pre-wrap">{project.codeSnippet}</pre>
+        <pre className="text-cyan-300/90 whitespace-pre-wrap overflow-x-auto font-mono text-[11px] sm:text-xs">{project.codeSnippet}</pre>
       </div>
 
       {/* Footer Info Badge */}
-      <div className="p-2.5 bg-white/3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+      <div className="p-2.5 bg-white/3 border-t border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400 font-mono">
         <span className="flex items-center gap-1.5 text-emerald-400">
-          <Sparkles className="w-3 h-3" /> Modular Enterprise Design
+          <Sparkles className="w-3 h-3 shrink-0" /> Modular Enterprise Design
         </span>
-        <span className="text-slate-500">Source code on GitHub</span>
+        <span className="text-slate-500 hidden sm:inline">Source code on GitHub</span>
       </div>
     </div>
   );
@@ -451,25 +450,25 @@ function ProjectCard({
         {/* Accent top gradient line */}
         <div className={`h-1.5 bg-gradient-to-r ${project.accent} opacity-80`} />
 
-        <div className="p-6 md:p-7 space-y-5">
+        <div className="p-4 sm:p-6 md:p-7 space-y-4 sm:space-y-5">
           {/* Header row */}
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
             <div>
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
                 <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-400 font-mono">
                   {project.category}
                 </span>
                 <span className="text-slate-600">•</span>
                 <span className="text-xs text-slate-400">{project.period}</span>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:gradient-text transition-all">
+              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:gradient-text transition-all">
                 {project.title}
               </h3>
-              <p className="text-sm text-slate-400 mt-1">{project.subtitle}</p>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">{project.subtitle}</p>
             </div>
 
             {/* Action buttons */}
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 self-start">
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -524,7 +523,7 @@ function ProjectCard({
       </div>
 
       {/* Card Footer: Expandable Details */}
-      <div className="px-6 pb-6 pt-2 border-t border-white/5">
+      <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-white/5">
         <button
           onClick={() => setExpanded(!expanded)}
           className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors font-medium w-full justify-between pt-2"
@@ -578,21 +577,21 @@ export function Projects() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            Featured Systems & Applications
+            Featured Systems &amp; Applications
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
             Production <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base">
-            Full-stack & AI solutions engineered for real-world impact across healthcare, education, career tech, and governance. Each project includes complete source code on GitHub.
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+            Full-stack &amp; AI solutions engineered for real-world impact across healthcare, education, career tech, and governance. Each project includes complete source code on GitHub.
           </p>
         </motion.div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -611,7 +610,7 @@ export function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 sm:p-8 flex flex-col items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-2 sm:p-8 flex flex-col items-center justify-center"
             onClick={() => setZoomModal(null)}
           >
             <button
@@ -627,19 +626,21 @@ export function Projects() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
-              className="relative max-w-5xl max-h-[85vh] rounded-2xl overflow-hidden glass border border-white/10 shadow-2xl flex flex-col bg-[#0b0e17]"
+              className="relative max-w-5xl max-h-[85vh] w-full rounded-2xl overflow-hidden glass border border-white/10 shadow-2xl flex flex-col bg-[#0b0e17]"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={zoomModal.url}
-                alt={zoomModal.caption}
-                className="max-h-[75vh] w-auto object-contain bg-black"
-              />
-              <div className="p-4 bg-[#090d16] border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                <span className="font-medium text-slate-200">{zoomModal.caption}</span>
+              <div className="flex-1 min-h-0 flex items-center justify-center p-2 bg-black overflow-hidden">
+                <img
+                  src={zoomModal.url}
+                  alt={zoomModal.caption}
+                  className="max-h-[65vh] sm:max-h-[75vh] w-auto max-w-full object-contain"
+                />
+              </div>
+              <div className="p-3 sm:p-4 bg-[#090d16] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-300">
+                <span className="font-medium text-slate-200 text-center sm:text-left">{zoomModal.caption}</span>
                 <button
                   onClick={() => setZoomModal(null)}
-                  className="px-3 py-1 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"
+                  className="px-3 py-1.5 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors shrink-0"
                 >
                   Close Preview
                 </button>

@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/8 bg-[#07090f]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           {/* Quick nav */}
-          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          <nav className="flex flex-wrap justify-center gap-x-4 sm:gap-x-5 gap-y-2">
             {footerLinks.map((link) => (
               <a
                 key={link.href}
@@ -60,12 +60,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="mt-6 sm:mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 text-center sm:text-left">
           <p>
             © {new Date().getFullYear()} Mchealay Hafte. All rights reserved.
           </p>
-          <p className="flex items-center gap-1">
-            Built with <Heart className="w-3 h-3 text-red-500/80 mx-0.5" /> using Next.js, Tailwind CSS & Framer Motion
+          <p className="flex items-center justify-center gap-1">
+            Built with <Heart className="w-3 h-3 text-red-500/80 mx-0.5" /> using Next.js, Tailwind CSS &amp; Framer Motion
           </p>
         </div>
       </div>

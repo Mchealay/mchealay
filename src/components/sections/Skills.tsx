@@ -35,7 +35,7 @@ const skills: Record<TabKey, Skill[]> = {
     { name: 'NeonDB', level: 88, icon: '⚡' },
     { name: 'Prisma ORM', level: 92, icon: '💎' },
     { name: 'RESTful APIs', level: 96, icon: '🔗' },
-    { name: 'Multi-Tenant Arch', level: 90, icon: '🏗️' },
+    { name: 'MySQL', level: 97, icon: '🐬' },
   ],
   frontend: [
     { name: 'React 19', level: 94, icon: '⚛️' },
@@ -122,18 +122,17 @@ export function Skills() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-wrap justify-center gap-2 mb-8"
+          className="flex overflow-x-auto no-scrollbar sm:flex-wrap justify-start sm:justify-center gap-2 mb-8 pb-2 sm:pb-0 px-1 sm:px-0"
         >
           {tabs.map((tab) => (
             <button
               key={tab.key}
               id={`skills-tab-${tab.key}`}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
-                activeTab === tab.key
-                  ? 'bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 text-cyan-400 border border-cyan-400/30'
+              className={`shrink-0 px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${activeTab === tab.key
+                  ? 'bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 text-cyan-400 border border-cyan-400/30 shadow-sm'
                   : 'glass border border-white/8 text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
+                }`}
             >
               {tab.label}
             </button>

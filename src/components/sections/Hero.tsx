@@ -65,42 +65,42 @@ export function Hero() {
       <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/3 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-5 sm:gap-6"
         >
           {/* Availability Badge */}
           <motion.div variants={itemVariants}>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-emerald-400/20 text-emerald-400 text-sm font-medium">
-              <span className="relative flex h-2 w-2">
+            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-emerald-400/20 text-emerald-400 text-xs sm:text-sm font-medium text-center">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               </span>
-              Available for Full-Stack & Backend Roles
+              <span>Available for Full-Stack &amp; Backend Roles</span>
             </span>
           </motion.div>
 
           {/* Name & Title */}
-          <motion.div variants={itemVariants} className="space-y-3">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white">
+          <motion.div variants={itemVariants} className="space-y-2 sm:space-y-3 w-full">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white break-words">
               Hi, I&apos;m <span className="gradient-text">MCHEALAY HAFTE</span>
             </h1>
-            <div className="flex items-center justify-center gap-3">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-500/50" />
-              <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-300">
+            <div className="flex items-center justify-center gap-2 sm:gap-3">
+              <div className="hidden sm:block h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500/50" />
+              <p className="text-lg sm:text-2xl lg:text-3xl font-semibold text-slate-300">
                 Full-Stack Software Developer
               </p>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-indigo-500/50" />
+              <div className="hidden sm:block h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-indigo-500/50" />
             </div>
           </motion.div>
 
           {/* Professional Summary Statement */}
           <motion.p
             variants={itemVariants}
-            className="max-w-3xl text-base sm:text-lg text-slate-400 leading-relaxed"
+            className="max-w-3xl text-sm sm:text-lg text-slate-400 leading-relaxed px-2 sm:px-0"
           >
             Full-stack developer with a proven track record delivering{' '}
             <span className="text-cyan-400 font-medium">full-stack, AI-powered solutions</span> across
@@ -108,15 +108,15 @@ export function Hero() {
           </motion.p>
 
           {/* Highlights Chips */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3">
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {[
-              { icon: <GraduationCap className="w-4 h-4 text-cyan-400" />, text: 'B.Sc. Software Engineering (GPA 3.67 / 4.0)' },
-              { icon: <Award className="w-4 h-4 text-emerald-400" />, text: 'National Exit Exam: 86.25%' },
-              { icon: <Zap className="w-4 h-4 text-amber-400" />, text: 'Vite PLC Backend Intern' },
+              { icon: <GraduationCap className="w-4 h-4 text-cyan-400 shrink-0" />, text: 'B.Sc. Software Engineering (GPA 3.67 / 4.0)' },
+              { icon: <Award className="w-4 h-4 text-emerald-400 shrink-0" />, text: 'National Exit Exam: 86.25%' },
+              { icon: <Zap className="w-4 h-4 text-amber-400 shrink-0" />, text: 'Vite PLC Backend Intern' },
             ].map((chip) => (
               <span
                 key={chip.text}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs text-slate-300"
               >
                 {chip.icon}
                 {chip.text}
@@ -127,12 +127,12 @@ export function Hero() {
           {/* Action Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-3 mt-2"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto mt-2"
           >
             <a
               id="view-projects-btn"
               href="#projects"
-              className="px-6 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-200 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:from-cyan-400 hover:to-indigo-400 transition-all duration-200 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               View Projects & Source Code
               <ArrowRight className="w-4 h-4" />
@@ -140,7 +140,7 @@ export function Hero() {
             <a
               id="contact-btn"
               href="#contact"
-              className="px-6 py-3 rounded-xl font-semibold text-sm glass border border-white/10 text-slate-200 hover:bg-white/8 hover:border-cyan-400/30 transition-all duration-200"
+              className="px-6 py-3 rounded-xl font-semibold text-sm glass border border-white/10 text-slate-200 hover:bg-white/8 hover:border-cyan-400/30 transition-all duration-200 text-center w-full sm:w-auto"
             >
               Get in Touch
             </a>
@@ -149,7 +149,7 @@ export function Hero() {
               href="https://mchealay.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl font-semibold text-sm border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/60 transition-all duration-200 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl font-semibold text-sm border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-400/60 transition-all duration-200 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <ExternalLink className="w-4 h-4" />
               mchealay.vercel.app
@@ -157,7 +157,7 @@ export function Hero() {
           </motion.div>
 
           {/* Social Icons */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3 mt-2">
+          <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mt-2">
             {socialLinks.map((link) => (
               <motion.a
                 key={link.id}
@@ -179,7 +179,7 @@ export function Hero() {
           {/* Scroll Indicator */}
           <motion.div
             variants={itemVariants}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}

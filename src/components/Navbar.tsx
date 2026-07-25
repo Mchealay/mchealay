@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Menu, X, Code2 } from 'lucide-react';
 
@@ -122,33 +122,59 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.25, ease: 'easeInOut' }}
-        className="fixed top-16 left-0 right-0 z-40 overflow-hidden glass border-b border-white/8 md:hidden"
-      >
-        <nav className="flex flex-col gap-1 p-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+      {/* Mobile Menu Backdrop & Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
-              className="px-4 py-3 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+              className="fixed inset-0 top-16 bg-black/60 backdrop-blur-sm z-30 md:hidden"
+            />
+            {/* Drawer */}
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="fixed top-16 left-0 right-0 z-40 overflow-hidden glass border-b border-white/10 shadow-2xl max-h-[calc(100vh-4.5rem)] overflow-y-auto md:hidden"
             >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setIsOpen(false)}
-            className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white text-center"
-          >
-            Hire Me
-          </a>
-        </nav>
-      </motion.div>
+              <nav className="flex flex-col gap-1.5 p-4">
+                {navLinks.map((link) => {
+                  const id = link.href.replace('#', '');
+                  const isActive = activeSection === id;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
+                        isActive
+                          ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-400/20 font-semibold'
+                          : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
+                    </a>
+                  );
+                })}
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white text-center shadow-lg shadow-cyan-500/20"
+                >
+                  Hire Me
+                </a>
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

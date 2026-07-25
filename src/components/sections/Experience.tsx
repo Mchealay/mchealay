@@ -40,16 +40,16 @@ function TimelineItem({ exp, index, total }: { exp: ExperienceItem; index: numbe
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -20 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeInOut' }}
       id={exp.id}
-      className="relative flex gap-6"
+      className="relative flex gap-3 sm:gap-6"
     >
       {/* Timeline line + dot */}
       <div className="flex flex-col items-center">
         <div
-          className={`w-5 h-5 rounded-full bg-gradient-to-br ${exp.accent} shrink-0 mt-1 shadow-lg ring-4 ring-[#090D16] flex items-center justify-center`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br ${exp.accent} shrink-0 mt-1 shadow-lg ring-4 ring-[#090D16] flex items-center justify-center`}
         >
           <div className="w-1.5 h-1.5 rounded-full bg-white" />
         </div>
@@ -59,27 +59,27 @@ function TimelineItem({ exp, index, total }: { exp: ExperienceItem; index: numbe
       </div>
 
       {/* Content */}
-      <div className="pb-10 flex-1">
-        <div className="glass glass-hover gradient-border rounded-2xl p-6 md:p-7 space-y-4">
+      <div className="pb-8 sm:pb-10 flex-1 min-w-0">
+        <div className="glass glass-hover gradient-border rounded-2xl p-4 sm:p-6 md:p-7 space-y-4">
           {/* Header */}
-          <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
             <div>
               <span className="text-xs font-semibold uppercase tracking-widest text-cyan-400 block mb-1">
                 {exp.type}
               </span>
-              <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-white">{exp.role}</h3>
               <div className="flex items-center gap-2 mt-1">
-                <Briefcase className="w-4 h-4 text-slate-400" />
-                <span className="text-base font-semibold text-slate-200">{exp.company}</span>
+                <Briefcase className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="text-sm sm:text-base font-semibold text-slate-200">{exp.company}</span>
               </div>
             </div>
             <div className="flex flex-col sm:items-end gap-1 text-xs text-slate-400">
               <div className="flex items-center gap-1.5 font-mono">
-                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 {exp.period}
               </div>
               <div className="flex items-center gap-1.5 text-slate-400">
-                <MapPin className="w-3.5 h-3.5 text-indigo-400" />
+                <MapPin className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                 {exp.location}
               </div>
             </div>
