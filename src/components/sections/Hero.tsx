@@ -84,24 +84,20 @@ export function Hero() {
         <div className="flex flex-col items-center gap-5 sm:gap-6 text-center">
           
           {/* — Availability Badge (Static clean status indicator) — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-wrap items-center justify-center gap-2"
+          <div
+            className="flex flex-wrap items-center justify-center gap-2 animate-fade-in"
+            style={{ animationDelay: '100ms', animationFillMode: 'both' }}
           >
             <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/25 bg-emerald-400/8 text-emerald-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
               <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               Open to Full-Stack &amp; Backend Roles
             </span>
-          </motion.div>
+          </div>
 
           {/* — Name & Title — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-3 w-full"
+          <div
+            className="space-y-3 w-full animate-fade-in"
+            style={{ animationDelay: '200ms', animationFillMode: 'both' }}
           >
             {/* Location mini-chip */}
             <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
@@ -122,14 +118,12 @@ export function Hero() {
               </p>
               <div className="hidden sm:block flex-1 max-w-[80px] h-px bg-gradient-to-l from-transparent via-indigo-500/40 to-indigo-500/60" />
             </div>
-          </motion.div>
+          </div>
 
           {/* — Integrated About Me Section Bio — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full max-w-3xl glass glass-rich gradient-border rounded-2xl p-5 sm:p-6 space-y-3 text-left my-1"
+          <div
+            className="w-full max-w-3xl glass glass-rich gradient-border rounded-2xl p-5 sm:p-6 space-y-3 text-left my-1 animate-fade-in"
+            style={{ animationDelay: '300ms', animationFillMode: 'both' }}
           >
             <div className="flex items-center gap-2 border-b border-white/6 pb-2.5">
               <UserCheck className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -144,14 +138,12 @@ export function Hero() {
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
               I build production-grade solutions using <span className="text-slate-200 font-medium">Python, Node.js, NestJS, Next.js, Django, Flutter, PostgreSQL, and MongoDB</span> across AI healthcare, education tech, career portals, and government real estate.
             </p>
-          </motion.div>
+          </div>
 
           {/* — Highlight Chips — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-2 max-w-2xl"
+          <div
+            className="flex flex-wrap items-center justify-center gap-2 max-w-2xl animate-fade-in"
+            style={{ animationDelay: '400ms', animationFillMode: 'both' }}
           >
             {highlights.map((chip) => (
               <span
@@ -162,14 +154,12 @@ export function Hero() {
                 <span>{chip.text}</span>
               </span>
             ))}
-          </motion.div>
+          </div>
 
           {/* — CTA Buttons — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto"
+          <div
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto animate-fade-in"
+            style={{ animationDelay: '500ms', animationFillMode: 'both' }}
           >
             {/* Primary CTA */}
             <a
@@ -202,14 +192,12 @@ export function Hero() {
               <ExternalLink className="w-4 h-4 shrink-0" />
               <span>mchealay.vercel.app</span>
             </a>
-          </motion.div>
+          </div>
 
           {/* — Social Icons — */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex items-center justify-center gap-2.5"
+          <div
+            className="flex items-center justify-center gap-2.5 animate-fade-in"
+            style={{ animationDelay: '600ms', animationFillMode: 'both' }}
           >
             {socialLinks.map((link) => (
               <a
@@ -225,7 +213,7 @@ export function Hero() {
                 {link.icon}
               </a>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
