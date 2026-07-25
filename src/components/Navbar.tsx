@@ -22,7 +22,7 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState('about');
   const controls = useAnimation();
 
-  // Always reset scroll to top (Hero/About) on page refresh
+  // Reset scroll to top (Hero/About) on page refresh only once
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if ('scrollRestoration' in window.history) {
@@ -33,7 +33,10 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -48,7 +51,8 @@ export function Navbar() {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setActiveSection(id === 'hero' ? 'about' : id);
+            const nextSec = id === 'hero' ? 'about' : id;
+            setActiveSection((prev) => (prev !== nextSec ? nextSec : prev));
           }
         },
         { rootMargin: '-30% 0px -50% 0px' }
@@ -62,9 +66,16 @@ export function Navbar() {
 
   useEffect(() => { controls.start({ y: 0, opacity: 1 }); }, [controls]);
 
-  // Close mobile menu on resize to desktop
+  // Close mobile menu on resize to desktop (compare width to avoid mobile address bar triggers)
   useEffect(() => {
-    const handleResize = () => { if (window.innerWidth >= 768) setIsOpen(false); };
+    let prevWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth !== prevWidth) {
+        prevWidth = currentWidth;
+        if (currentWidth >= 768) setIsOpen(false);
+      }
+    };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

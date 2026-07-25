@@ -67,9 +67,11 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || hasStartedRef.current) return;
+    hasStartedRef.current = true;
     let start = 0;
     const duration = 1600;
     const step = 16;
