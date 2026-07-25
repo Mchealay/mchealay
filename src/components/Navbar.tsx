@@ -22,13 +22,19 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState('about');
   const controls = useAnimation();
 
-  // Reset scroll to top (Hero/About) on page refresh only once
+  // Reset scroll to top (Hero/About) on page refresh
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if ('scrollRestoration' in window.history) {
         window.history.scrollRestoration = 'manual';
       }
-      window.scrollTo(0, 0);
+      // Use a short timeout to ensure this runs after browser's native paint/scroll
+      const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+        // Ensure active section starts as about
+        setActiveSection('about');
+      }, 50);
+      return () => clearTimeout(timer);
     }
   }, []);
 
