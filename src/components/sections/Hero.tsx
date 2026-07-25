@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, ExternalLink, ArrowRight, Zap, Phone, Award, GraduationCap, MapPin, Sparkles, UserCheck } from 'lucide-react';
 
 const GithubIcon = () => (
@@ -64,16 +64,6 @@ const highlights = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
 export function Hero() {
   return (
     <section
@@ -91,14 +81,15 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-24">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center gap-5 sm:gap-6 text-center"
-        >
+        <div className="flex flex-col items-center gap-5 sm:gap-6 text-center">
+          
           {/* — Availability Badge (Static clean status indicator) — */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-wrap items-center justify-center gap-2"
+          >
             <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/25 bg-emerald-400/8 text-emerald-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
               <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               Open to Full-Stack &amp; Backend Roles
@@ -106,7 +97,12 @@ export function Hero() {
           </motion.div>
 
           {/* — Name & Title — */}
-          <motion.div variants={itemVariants} className="space-y-3 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-3 w-full"
+          >
             {/* Location mini-chip */}
             <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
               <MapPin className="w-3 h-3 text-indigo-400 shrink-0" />
@@ -130,7 +126,9 @@ export function Hero() {
 
           {/* — Integrated About Me Section Bio — */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="w-full max-w-3xl glass glass-rich gradient-border rounded-2xl p-5 sm:p-6 space-y-3 text-left my-1"
           >
             <div className="flex items-center gap-2 border-b border-white/6 pb-2.5">
@@ -150,7 +148,9 @@ export function Hero() {
 
           {/* — Highlight Chips — */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap items-center justify-center gap-2 max-w-2xl"
           >
             {highlights.map((chip) => (
@@ -166,7 +166,9 @@ export function Hero() {
 
           {/* — CTA Buttons — */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto"
           >
             {/* Primary CTA */}
@@ -203,25 +205,28 @@ export function Hero() {
           </motion.div>
 
           {/* — Social Icons — */}
-          <motion.div variants={itemVariants} className="flex items-center justify-center gap-2.5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex items-center justify-center gap-2.5"
+          >
             {socialLinks.map((link) => (
-              <motion.a
+              <a
                 key={link.id}
                 id={link.id}
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 aria-label={link.label}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-11 h-11 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200 ${link.color}`}
+                className={`w-11 h-11 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 active:scale-95 ${link.color}`}
                 title={link.label}
               >
                 {link.icon}
-              </motion.a>
+              </a>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
