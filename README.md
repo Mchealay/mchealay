@@ -12,7 +12,7 @@
   <tr>
     <td width="120" valign="middle">
       <!-- Replace this URL with your own photo once committed to your repo -->
-      <img src="https://github.com/Mchealay.png" width="100" style="border-radius:50%; border: 3px solid #06b6d4;" alt="Mchealay Hafte"/>
+     <!-- <img src="https://github.com/Mchealay.png" width="100" style="border-radius:50%; border: 3px solid #06b6d4;" alt="Mchealay Hafte"/>-->
     </td>
     <td valign="middle" align="left">
       <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=30&duration=2800&pause=1200&color=06B6D4&vCenter=true&width=520&lines=Full-Stack+Developer+%E2%9A%99%EF%B8%8F;AI+%26+Computer+Vision+Engineer+%F0%9F%A4%96;Open+to+Remote+Work+%F0%9F%8C%8D" alt="Title Typing SVG"/>
