@@ -4,7 +4,7 @@
 
 <!-- 1. Wide Tech Banner -->
 <a href="https://mchealay.vercel.app" target="_blank">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0e2a3a,100:1a0533&height=130&text=mchealay&fontSize=52&fontColor=06b6d4&fontAlignY=55&desc=Full-Stack%20Software%20Developer%20%7C%20AI%20%26%20Computer%20Vision%20Engineer&descAlignY=80&descSize=14&descColor=94a3b8&animation=fadeIn" width="100%" alt="Header Banner"/>
+  <img src="blob:https://gemini.google.com/38ec14a8-3e77-4da9-aacc-bf0225eae0f0" width="100%" alt="Header Banner"/>
 </a>
 
 <!-- 2. Profile Photo + Title Block -->
