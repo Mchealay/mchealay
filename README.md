@@ -4,7 +4,7 @@
 
 <!-- 1. Wide Tech Banner -->
 <a href="https://mchealay.vercel.app" target="_blank">
-  <img src="blob:https://gemini.google.com/38ec14a8-3e77-4da9-aacc-bf0225eae0f0" width="100%" alt="Header Banner"/>
+  <img src="public/projects/Gemini_Generated_Image_g2s3myg2s3myg2s3.png" width="100%" alt="Header Banner"/>
 </a>
 
 <!-- 2. Profile Photo + Title Block -->
