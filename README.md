@@ -1,44 +1,64 @@
-<div align="center">
-
 <!-- ========================================== -->
-<!--              ANIMATED HEADER               -->
+<!--              HEADER — SCREENSHOT STYLE     -->
 <!-- ========================================== -->
 
+<!-- 1. Wide Tech Banner -->
 <a href="https://mchealay.vercel.app" target="_blank">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:06b6d4,100:6366f1&height=200&section=header&text=MCHEALAY%20HAFTE&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20Software%20Developer%20%7C%20AI%20%26%20Computer%20Vision&descAlignY=58&descSize=17&animation=fadeIn" width="100%" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0e2a3a,100:1a0533&height=130&text=mchealay&fontSize=52&fontColor=06b6d4&fontAlignY=55&desc=Full-Stack%20Software%20Developer%20%7C%20AI%20%26%20Computer%20Vision%20Engineer&descAlignY=80&descSize=14&descColor=94a3b8&animation=fadeIn" width="100%" alt="Header Banner"/>
 </a>
 
-<!-- Dynamic Typing SVG -->
-<a href="https://mchealay.vercel.app">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=06B6D4&center=true&vCenter=true&multiline=false&width=620&lines=Hey+there%2C+I'm+Mchealay+%F0%9F%91%8B;Full-Stack+%26+Backend+Developer+%E2%9A%99%EF%B8%8F;AI+%26+Computer+Vision+Engineer+%F0%9F%A4%96;Open+to+Remote+Worldwide+%F0%9F%8C%8D" alt="Typing SVG" />
-</a>
+<!-- 2. Profile Photo + Title Block -->
+<table>
+  <tr>
+    <td width="120" valign="middle">
+      <!-- Replace this URL with your own photo once committed to your repo -->
+      <img src="https://github.com/Mchealay.png" width="100" style="border-radius:50%; border: 3px solid #06b6d4;" alt="Mchealay Hafte"/>
+    </td>
+    <td valign="middle" align="left">
+      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=30&duration=2800&pause=1200&color=06B6D4&vCenter=true&width=520&lines=Full-Stack+Developer+%E2%9A%99%EF%B8%8F;AI+%26+Computer+Vision+Engineer+%F0%9F%A4%96;Open+to+Remote+Work+%F0%9F%8C%8D" alt="Title Typing SVG"/>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
-<!-- Profile Badges Row -->
+<!-- 3. Info Badges Row 1 -->
 <p>
-  <img src="https://img.shields.io/badge/📍_Location-Addis%20Ababa%2C%20Ethiopia-06b6d4?style=flat-square&labelColor=0d1117" alt="Location"/>
+  <img src="https://img.shields.io/badge/📍%20Location-Addis%20Ababa%2C%20Ethiopia-06b6d4?style=flat-square&labelColor=161b22&color=0d1117" alt="Location"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/🎓_GPA-3.67%20%2F%204.0-6366f1?style=flat-square&labelColor=0d1117" alt="GPA"/>
+  <img src="https://img.shields.io/badge/🎓%20GPA-3.67%20%2F%204.0-6366f1?style=flat-square&labelColor=161b22&color=0d1117" alt="GPA"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/🏆_Exit%20Exam-86.25%25-10b981?style=flat-square&labelColor=0d1117" alt="Exit Exam"/>
+  <img src="https://img.shields.io/badge/🏆%20Exit%20Exam-86.25%25-f59e0b?style=flat-square&labelColor=161b22&color=0d1117" alt="Exit Exam"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/🟢_Status-Open%20to%20Work-22c55e?style=flat-square&labelColor=0d1117" alt="Status"/>
-  &nbsp;
-  <img src="https://img.shields.io/badge/🌐_Portfolio-mchealay.vercel.app-f59e0b?style=flat-square&labelColor=0d1117" alt="Portfolio"/>
+  <img src="https://img.shields.io/badge/🟢%20Status-Open%20to%20Work-22c55e?style=flat-square&labelColor=161b22&color=166534" alt="Status"/>
 </p>
 
+<!-- 4. Info Badges Row 2 — Portfolio + Stats -->
 <p>
+  <a href="https://mchealay.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐%20Portfolio-mchealay.vercel.app-f59e0b?style=flat-square&labelColor=161b22&color=713f12" alt="Portfolio"/>
+  </a>
+  &nbsp;&nbsp;
   <a href="https://github.com/Mchealay">
-    <img src="https://komarev.com/ghpvc/?username=Mchealay&style=flat-square&color=06b6d4&label=Profile+Views" alt="Profile views"/>
+    <img src="https://komarev.com/ghpvc/?username=Mchealay&style=flat-square&color=06b6d4&label=Profile+Views" alt="Profile Views"/>
   </a>
   &nbsp;
   <a href="https://github.com/Mchealay?tab=followers">
-    <img src="https://img.shields.io/github/followers/Mchealay?style=flat-square&color=6366f1&labelColor=0d1117&label=Followers" alt="GitHub Followers"/>
+    <img src="https://img.shields.io/github/followers/Mchealay?style=flat-square&color=6366f1&labelColor=161b22&label=Followers" alt="Followers"/>
   </a>
 </p>
 
-</div>
+<!-- 5. Tech Skill Icon Grid (2 rows) -->
+<p>
+  <!-- Row 1 -->
+  <img src="https://skillicons.dev/icons?i=python,react,docker,nestjs,nodejs,ts" height="42" alt="Row 1 skills"/>
+</p>
+<p>
+  <!-- Row 2 -->
+  <img src="https://skillicons.dev/icons?i=vscode,django,postgres,mongodb,nextjs,tailwind" height="42" alt="Row 2 skills"/>
+</p>
+
+
 
 ---
 
